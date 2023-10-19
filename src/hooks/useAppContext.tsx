@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import constate from "constate";
+import data from "../data.json";
 
 const useApp = () => {
-  const [isRayloPay, setIsRayloPay] = useState(false);
-
+  const [conversations, setConversations] = useState(data);
   return {
-    isRayloPay,
-    setIsRayloPay,
+    conversations,
+    setConversations,
   };
 };
 
