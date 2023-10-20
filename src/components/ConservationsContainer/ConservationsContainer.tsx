@@ -6,9 +6,8 @@ import { useAppContext } from "../../hooks/useAppContext";
 
 export const ConservationsContainer = ({
   dataTestId,
-  onSelect,
 }: IConservationsContainer) => {
-  const { conversations } = useAppContext();
+  const { conversations, onSelect } = useAppContext();
   return (
     <StyledConservationsContainer data-testid={dataTestId}>
       <ConversationList

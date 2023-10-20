@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useAppContext } from "./hooks/useAppContext";
 import "./App.css";
+import ChatContainer from "./templates/ChatContainer";
 
 const App = () => {
   const { conversations } = useAppContext();
@@ -9,7 +10,7 @@ const App = () => {
   }, [conversations]);
   return (
     <div className="App">
-      <h1>Hello, world!</h1>
+      <ChatContainer />
     </div>
   );
 };

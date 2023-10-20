@@ -3,9 +3,12 @@ import {
   ConversationItem,
   ConversationsContainer,
 } from "./ConversationList.styles";
+import { IConversationList } from "./ConversationList.types";
 
-export const ConversationList = ({ conversations, onSelect }) => {
-  // Sort conversations by lastUpdated in descending order
+export const ConversationList = ({
+  conversations,
+  onSelect,
+}: IConversationList) => {
   const sortedConversations = conversations.sort(
     (
       a: { last_updated: string | number | Date },
@@ -15,15 +18,16 @@ export const ConversationList = ({ conversations, onSelect }) => {
 
   return (
     <ConversationsContainer data-testid="conversation-list">
-      {sortedConversations.map((conversation, index) => (
-        <ConversationItem
-          key={conversation.id}
-          onClick={() => onSelect(index)}
-          data-testid="conversation-item"
-        >
-          <span>Conversation {index + 1}</span>
-        </ConversationItem>
-      ))}
+      {sortedConversations &&
+        sortedConversations.map((conversation, index) => (
+          <ConversationItem
+            key={conversation.id}
+            onClick={() => onSelect(index.toString())}
+            data-testid="conversation-item"
+          >
+            <span>Conversation {index + 1}</span>
+          </ConversationItem>
+        ))}
     </ConversationsContainer>
   );
 };
