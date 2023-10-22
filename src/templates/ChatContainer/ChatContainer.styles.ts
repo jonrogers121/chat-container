@@ -14,6 +14,7 @@ const LeftColumn = styled.div`
   flex: 1;
   height: 100%;
   border-right: 1px solid #f4f4f4;
+  padding: ${px2Rem(24)} ${px2Rem(10)} 0 ${px2Rem(24)};
 `;
 
 const RightColumn = styled.div`
@@ -24,6 +25,8 @@ const RightColumn = styled.div`
 
 const TopSection = styled.div`
   flex: 1;
+  overflow-y: scroll;
+  padding: ${px2Rem(10)};
 `;
 
 const BottomSection = styled.div`
