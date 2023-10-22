@@ -13,12 +13,15 @@ const Container = styled.div`
 const LeftColumn = styled.div`
   flex: 1;
   height: 100%;
-  border-right: 1px solid #f4f4f4;
-  padding: ${px2Rem(24)} ${px2Rem(10)} 0 ${px2Rem(24)};
+  border-right: 2px solid #f4f4f4;
+`;
+
+const LeftColumnContainer = styled.div`
+  padding: ${px2Rem(24)};
 `;
 
 const RightColumn = styled.div`
-  flex: 2;
+  flex: 3;
   display: flex;
   flex-direction: column;
 `;
@@ -26,18 +29,19 @@ const RightColumn = styled.div`
 const TopSection = styled.div`
   flex: 1;
   overflow-y: scroll;
-  padding: ${px2Rem(10)};
+  padding: ${px2Rem(24)};
 `;
 
 const BottomSection = styled.div`
   height: 80px;
-  border-top: 1px solid #f4f4f4;
+  border-top: 2px solid #f4f4f4;
 `;
 
 export {
   StyledChatContainer,
   Container,
   LeftColumn,
+  LeftColumnContainer,
   RightColumn,
   TopSection,
   BottomSection,

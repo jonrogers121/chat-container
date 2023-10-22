@@ -1,5 +1,6 @@
 import React from "react";
 import MessageCard from "../MessageCard";
+import { Spacer } from "./MessageList.styles";
 
 export const MessageList = ({ messages }: any) => {
   return (
@@ -10,12 +11,15 @@ export const MessageList = ({ messages }: any) => {
           text: string;
           last_updated: string;
         }) => (
-          <MessageCard
-            data-testid="message-card"
-            key={message.id}
-            text={message.text}
-            last_updated={message.last_updated}
-          />
+          <>
+            <MessageCard
+              data-testid="message-card"
+              key={message.id}
+              text={message.text}
+              last_updated={message.last_updated}
+            />
+            <Spacer />
+          </>
         )
       )}
     </div>
