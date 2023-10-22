@@ -21,6 +21,8 @@ interface IAppContext {
   selectedMessageThread: Message[];
   setConversations: React.Dispatch<React.SetStateAction<Conversation[]>>;
   onSelect: (id: string) => void;
+  newMessage?: Message;
+  setNewMessage: React.Dispatch<React.SetStateAction<Message>>;
 }
 
 const useApp = (): IAppContext => {
@@ -29,6 +31,11 @@ const useApp = (): IAppContext => {
   const [selectedMessageThread, setSelectedMessageThread] = useState<Message[]>(
     data[0].messages
   );
+  const [newMessage, setNewMessage] = useState<Message>({
+    id: "",
+    text: "",
+    last_updated: "",
+  });
 
   function sortByLastUpdatedOldestFirst(messages: Message[]) {
     return messages.sort((a, b) => {
@@ -51,7 +58,19 @@ const useApp = (): IAppContext => {
       selected?.messages || []
     );
     setSelectedMessageThread(sortedSelected);
-  }, [selectedConversation]);
+  }, [selectedConversation, conversations]);
+
+  useEffect(() => {
+    if (newMessage?.text) {
+      setSelectedMessageThread((prev) => [...prev, newMessage]);
+      const updatedConversations = conversations;
+      updatedConversations[Number(selectedConversation)].messages = [
+        ...selectedMessageThread,
+        newMessage,
+      ];
+      setConversations(updatedConversations);
+    }
+  }, [newMessage]);
 
   const onSelect = (id: string) => {
     setSelectedConversation(id);
@@ -61,6 +80,7 @@ const useApp = (): IAppContext => {
     selectedConversation,
     selectedMessageThread,
     setConversations,
+    setNewMessage,
     onSelect,
   } as IAppContext;
 };

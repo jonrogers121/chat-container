@@ -33,8 +33,13 @@ const TopSection = styled.div`
 `;
 
 const BottomSection = styled.div`
-  height: 80px;
+  height: 50px;
   border-top: 2px solid #f4f4f4;
+  padding: ${px2Rem(24)};
+
+  @media (max-width: 600px) {
+    height: 70px;
+  }
 `;
 
 export {
