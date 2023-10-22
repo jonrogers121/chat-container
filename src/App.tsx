@@ -9,9 +9,9 @@ const App = () => {
     console.log(conversations);
   }, [conversations]);
   return (
-    <div className="App">
+    <>
       <ChatContainer />
-    </div>
+    </>
   );
 };
 

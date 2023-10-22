@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { px2Rem } from "../../utils/px2Rem";
 
 const StyledChatContainer = styled.div``;
 
 const Container = styled.div`
   display: flex;
-  height: 400px;
+  height: 500px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 `;
