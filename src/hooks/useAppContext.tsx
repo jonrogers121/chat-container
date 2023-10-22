@@ -70,6 +70,8 @@ const useApp = (): IAppContext => {
       ];
       setConversations(updatedConversations);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newMessage]);
 
   const onSelect = (id: string) => {

@@ -13,7 +13,6 @@ import ConversationList from "../../components/ConversationList";
 import { useAppContext } from "../../hooks/useAppContext";
 import MessageList from "../../components/MessageList";
 import TextForm from "../../components/TextForm";
-import { useMedia } from "use-media";
 
 export const ChatContainer = ({ dataTestId }: IChatContainer) => {
   const { conversations, onSelect, selectedMessageThread } = useAppContext();

@@ -11,15 +11,14 @@ export const MessageList = ({ messages }: any) => {
           text: string;
           last_updated: string;
         }) => (
-          <>
+          <div key={message.id}>
             <MessageCard
               data-testid="message-card"
-              key={message.id}
               text={message.text}
               last_updated={message.last_updated}
             />
             <Spacer />
-          </>
+          </div>
         )
       )}
     </div>
