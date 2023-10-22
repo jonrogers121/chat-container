@@ -19,11 +19,9 @@ describe("MessageList component", () => {
 
     const { getAllByTestId } = render(<MessageList messages={messages} />);
 
-    // Check if the correct number of MessageCard components are rendered
     const messageCards = getAllByTestId("message-card");
     expect(messageCards).toHaveLength(messages.length);
 
-    // Check if each message text is rendered correctly
     messages.forEach((message, index) => {
       const messageCard = messageCards[index];
       expect(messageCard).toHaveTextContent(message.text);

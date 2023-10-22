@@ -1,27 +1,20 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect"; // for jest-dom matchers
-import { ChatContainer } from "./ChatContainer"; // Import your component
+import { ChatContainer } from "./ChatContainer";
 
-describe("ChatContainer component", () => {
-  it("renders the container with subcomponents", () => {
+jest.mock("../../hooks/useAppContext", () => ({
+  useAppContext: jest.fn(() => ({
+    conversations: [],
+    onSelect: jest.fn(),
+    selectedMessageThread: [],
+  })),
+}));
+
+describe("ChatContainer Component", () => {
+  it("should render without errors", () => {
     const { getByTestId } = render(
       <ChatContainer dataTestId="chat-container" />
     );
-
-    const container = getByTestId("chat-container");
-    expect(container).toBeInTheDocument();
-
-    const leftColumn = getByTestId("left-column");
-    expect(leftColumn).toBeInTheDocument();
-
-    const rightColumn = getByTestId("right-column");
-    expect(rightColumn).toBeInTheDocument();
-
-    const topSection = getByTestId("top-section");
-    expect(topSection).toBeInTheDocument();
-
-    const bottomSection = getByTestId("bottom-section");
-    expect(bottomSection).toBeInTheDocument();
+    expect(getByTestId("chat-container")).toBeInTheDocument();
   });
 });

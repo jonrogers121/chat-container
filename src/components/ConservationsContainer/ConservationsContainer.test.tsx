@@ -22,7 +22,6 @@ describe("ConservationsContainer component", () => {
     ];
     const mockOnSelect = jest.fn();
 
-    // Define mock conversations data and onSelect function
     const newMockConversations = [
       {
         id: "1",
@@ -36,7 +35,6 @@ describe("ConservationsContainer component", () => {
       },
     ];
 
-    // Mock the useAppContext hook to return the mock data
     (
       useAppContext as jest.MockedFunction<typeof useAppContext>
     ).mockReturnValue({
@@ -56,14 +54,10 @@ describe("ConservationsContainer component", () => {
       />
     );
 
-    // Verify that the container is rendered with the specified data-testid
     const container = getByTestId("conservations-container");
     expect(container).toBeInTheDocument();
 
-    // Verify that the conversation list is rendered within the container
     const conversationList = getByTestId("conversation-list");
     expect(conversationList).toBeInTheDocument();
   });
-
-  // Add more tests as needed for specific behavior of your component
 });
